@@ -17,7 +17,7 @@ namespace ObjectCoordiantes
         private List<string> _coordinatePairs = new List<string>();
 
         /// <summary>
-        /// Конструктор для значений, которые храняться в качестве массива строк
+        /// Конструктор для значений, которые хранятся в качестве массива строк
         /// </summary>
         /// <param name="cooridnatePairs"></param>
         public Coordinates(string[] cooridnatePairs)
