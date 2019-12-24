@@ -5,10 +5,21 @@ using System.Text;
 
 namespace ObjectCoordiantes
 {
+    /// <summary>
+    /// Класс, который хранит координаты в удобочитаемой форме
+    /// </summary>
     public class Coordinates
     {
+        /// <summary>
+        /// Связный список хранит значения строк с координатами
+        /// независимо от способа их получения
+        /// </summary>
         private List<string> _coordinatePairs = new List<string>();
 
+        /// <summary>
+        /// Конструктор для значений, которые храняться в качестве массива строк
+        /// </summary>
+        /// <param name="cooridnatePairs"></param>
         public Coordinates(string[] cooridnatePairs)
         {
             foreach (string pair in cooridnatePairs)
@@ -16,12 +27,19 @@ namespace ObjectCoordiantes
                 this._coordinatePairs.Add(pair);
             }
         }
-
+        /// <summary>
+        /// Конструктор для пары значений, переданной в виде двух строк
+        /// </summary>
+        /// <param name="firstCoordinate">первое значение</param>
+        /// <param name="secondCoordiante">второе значение</param>
         public Coordinates(string firstCoordinate, string secondCoordiante)
         {
             this._coordinatePairs.Add(String.Format("{0},{1}", firstCoordinate, secondCoordiante));
         }
-
+        /// <summary>
+        /// Конструктор, извлекающий строки из тектового файла
+        /// </summary>
+        /// <param name="path">путь до файла</param>
         public Coordinates(string path)
         {
             StreamReader sr = new StreamReader(path, System.Text.Encoding.Default);
@@ -39,6 +57,10 @@ namespace ObjectCoordiantes
             }
         }
 
+        /// <summary>
+        /// Переопределение метода ToString()
+        /// </summary>
+        /// <returns>Отформатированная строка</returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
@@ -49,7 +71,7 @@ namespace ObjectCoordiantes
 
                 sb.Append(String.Format("X: {0}   Y: {1}\n", XYCoordinates[0], XYCoordinates[1]));
             }
-
+        
             return sb.Length == 0 ? "" : sb.Remove(sb.Length - 1, 1).ToString();
         }
     }
